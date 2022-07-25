@@ -16,11 +16,11 @@ import Footer from "./components/Footer.vue";
   <main>
     <TheWelcome />
   </main>-->
-  <div class="common-layout">
+  <div>
+    <el-header height="80px">
+      <Header />
+    </el-header>
     <el-container>
-      <el-header>
-        <Header />
-      </el-header>
       <el-main>
         <CardList />
       </el-main>
@@ -33,10 +33,36 @@ import Footer from "./components/Footer.vue";
 
 <style>
 /*@import './assets/base.css';*/
-.el-header {
-  position: relative;
-  height: 64px;
+body {
+  height: 100%;
+  overflow: hidden;
 }
+.el-header {
+  height: 80px;
+  --el-header-height: 80px;
+  background-color: #25ad9bdd;
+  /* position: relative; */
+  display: flex;
+  justify-content: flex-start;
+}
+.el-container {
+  height: calc(100vh - 80px);
+}
+
+.el-footer {
+  background: #EEEEEE;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* .el-main {
+  position: absolute;
+  left: 200px;
+  right: 0;
+  top: 64px;
+  bottom: 0;
+  overflow-y: scroll;
+} */
 
 /*#app {
   max-width: 1280px;

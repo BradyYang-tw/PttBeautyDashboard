@@ -10,5 +10,23 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  server: {
+    proxy: {
+      // string shorthand
+      // '/getData': 'http://localhost:5000/getData',
+      // with options
+      '/getAllImage': {
+        target: 'http://localhost:5000/getAllImage',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/getAllImage/, '')
+      },
+      // with RegEx
+      '^/fallback/.*': {
+        target: 'http://jsonplaceholder.typicode.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/fallback/, '')
+      },
+      
+    }}
 })
