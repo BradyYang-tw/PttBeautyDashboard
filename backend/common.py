@@ -33,5 +33,5 @@ def get_more_picture(second_url):
 
 if __name__ == "__main__":
     pageURL = "https://www.ptt.cc/bbs/beauty/index.html"
-    # get_page_url(pageURL)
-    get_more_picture("https://www.ptt.cc/bbs/Beauty/M.1658415683.A.D4D.html")
+    get_page_url(pageURL)
+    # get_more_picture("https://www.ptt.cc/bbs/Beauty/M.1658415683.A.D4D.html")

@@ -1,5 +1,5 @@
 <template>
-<a href="localhost:3000">
+<a href="#/">
   <img
     alt="Vue logo"
     class="logo"

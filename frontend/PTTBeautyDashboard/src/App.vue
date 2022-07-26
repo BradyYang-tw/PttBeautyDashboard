@@ -1,28 +1,34 @@
 <script setup>
-import CardList from "./components/CardList.vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import CardList from "./components/CardList.vue";
+
+// // 建立Router
+// import { ref, computed } from 'vue'
+
+// const currentPath = ref(window.location.hash)
+
+// window.addEventListener('hashchange', () => {
+//   currentPath.value = window.location.hash
+// })
+
+// const currentView = computed(() => {
+//   return routes[currentPath.value.slice(1) || '/'] || NotFound
+// })
+
+
 </script>
 
 <template>
-  <!--<header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>-->
   <div>
     <el-header height="80px">
       <Header />
     </el-header>
     <el-container>
       <el-main>
-        <CardList />
+        <!-- <CardList /> -->
+        <!-- <component :is="currentView" /> -->
+        <router-view></router-view>
       </el-main>
       <el-footer>
         <Footer />
@@ -32,10 +38,11 @@ import Footer from "./components/Footer.vue";
 </template>
 
 <style>
-/*@import './assets/base.css';*/
 body {
   height: 100%;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  
 }
 .el-header {
   height: 80px;
@@ -54,72 +61,4 @@ body {
   display: flex;
   justify-content: flex-start;
 }
-
-/* .el-main {
-  position: absolute;
-  left: 200px;
-  right: 0;
-  top: 64px;
-  bottom: 0;
-  overflow-y: scroll;
-} */
-
-/*#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
-}
-
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-}*/
 </style>

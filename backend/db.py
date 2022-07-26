@@ -8,7 +8,8 @@ def create_db():
              (ID INTEGER PRIMARY KEY     AUTOINCREMENT,
              TITLE           TEXT    NOT NULL,
              URLS        TEXT,
-             DATE        TEXT);''')
+             DATE        TEXT,
+             HREF        TEXT);''')
     con.close()
 
 
@@ -16,6 +17,9 @@ if __name__=='__main__':
     # create_db()
     # SELECT TABLE
     con = sqlite3.connect('mydatabase.db')
-    for row in con.execute('''SELECT * from ptt_beauty'''):
+
+    for row in con.execute('''SELECT * from ptt_beauty
+                              WHERE ID = 1;
+                           '''):
         print(row)
     con.close()

@@ -21,6 +21,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/getAllImage/, '')
       },
+      '/getImageByID': {
+        target: 'http://localhost:5000/getImageByID',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/getImageByID/, '')
+      },
       // with RegEx
       '^/fallback/.*': {
         target: 'http://jsonplaceholder.typicode.com',
