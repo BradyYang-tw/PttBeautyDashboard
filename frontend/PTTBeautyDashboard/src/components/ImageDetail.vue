@@ -5,7 +5,11 @@
       <a :href="href" target="_blank">PTT 連結</a>
     </el-button> -->
     <a :href="href" class="el-button" target="_blank">PTT 連結</a>
-    <el-button @click="auto=!auto" :type="auto ? 'success':''">自動播放</el-button>
+    
+    <el-button>下載照片</el-button>
+    <el-button @click="auto = !auto" :type="auto ? 'success' : 'default'"
+      >自動播放</el-button
+    >
   </div>
   <el-carousel
     v-if="detailData.length > 0"
@@ -18,7 +22,6 @@
       <img :src="detailData[index - 1]" class="image" />
     </el-carousel-item>
   </el-carousel>
-
 </template>
 
 <script setup>
@@ -57,10 +60,12 @@ const auto = ref(true);
 }
 
 a {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 
-a:hover { text-decoration: none !important ; }
+a:hover {
+  text-decoration: none !important ;
+}
 
 .image {
   width: 100%;
