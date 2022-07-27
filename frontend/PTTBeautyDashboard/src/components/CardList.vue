@@ -36,6 +36,7 @@
 import { ref, reactive, onMounted } from "vue";
 import { getAllImage } from "@/api/image.js";
 import { useRouter, useRoute } from "vue-router";
+import.meta.env.DEV.VITE_SOME_KEY
 
 // getAllImage
 const pttData = ref([]);
@@ -66,6 +67,7 @@ const goDetail = function (id, title, href) {
 
 onMounted(() => {
   getData();
+  console.log("666666", import.meta.env.DEV.VITE_SOME_KEY);
 });
 </script>
 
@@ -95,6 +97,6 @@ onMounted(() => {
   height: 300px;
   margin: 0 auto;
   /* display: block; */
-  object-fit: cover;
+  object-fit: contain;
 }
 </style>

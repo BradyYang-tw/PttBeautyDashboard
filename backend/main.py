@@ -10,6 +10,7 @@ def main(custom_date=datetime.datetime.today().strftime("%#m/%d")):
     result = []
     while href_data:
         i = href_data[0]
+        print(i)
         if i.find("a") and '正妹' in i.find("a").text:
             date = i.find('div', {'class': 'date'}).text.replace(' ', '')
             # 只抓當日的發文
@@ -20,7 +21,7 @@ def main(custom_date=datetime.datetime.today().strftime("%#m/%d")):
             # 將資料寫進SQLlite
             con = sqlite3.connect('mydatabase.db')
             c = con.cursor()
-            query = 'INSERT INTO ptt_beauty (TITLE,URLS, DATE, HREF) VALUES (?, ?, ?, ?)'
+            query = 'INSERT or ignore INTO ptt_beauty (TITLE,URLS, DATE, HREF) VALUES (?, ?, ?, ?)'
             query_data = [i.find("a").text, str(data), date, domain + i.find("a")['href']]
             c.execute(query, query_data)
             con.commit()
@@ -35,4 +36,4 @@ def main(custom_date=datetime.datetime.today().strftime("%#m/%d")):
 
 if __name__ == "__main__":
     # main("6/25")
-    main("7/21")
+    main("7/27")

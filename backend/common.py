@@ -1,10 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import urllib.request
-import re # 正規表示
-import os # 操作系統資料夾、檔案
-from flask import jsonify, Flask
-import json
 
 
 # 取得一個頁面上所有PTT列表的URL

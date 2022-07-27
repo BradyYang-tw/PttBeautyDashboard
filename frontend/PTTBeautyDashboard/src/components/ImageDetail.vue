@@ -4,37 +4,21 @@
     <!-- <el-button>
       <a :href="href" target="_blank">PTT 連結</a>
     </el-button> -->
-    <a :href="href" class="el-button el-button--primary" target="_blank">PTT 連結</a>
-    <el-button>自動撥放</el-button>
-    <el-button>Default</el-button>
-    <el-button>Default</el-button>
+    <a :href="href" class="el-button" target="_blank">PTT 連結</a>
+    <el-button @click="auto=!auto" :type="auto ? 'success':''">自動播放</el-button>
   </div>
   <el-carousel
     v-if="detailData.length > 0"
     :interval="4000"
     type="card"
     height="500px"
+    :autoplay="auto"
   >
     <el-carousel-item v-for="index in detailData.length" :key="index">
       <img :src="detailData[index - 1]" class="image" />
     </el-carousel-item>
   </el-carousel>
 
-  <!-- <el-row v-if="detailData.length > 0" :gutter="20">
-      <el-col
-        v-for="index in detailData.length "
-        :key="index"
-        :xs="24"
-        :sm="12"
-        :md="10"
-        :lg="8"
-        :xl="6"
-      >
-        <el-card>
-          <img :src="detailData[index-1]" class="image" />
-        </el-card>
-      </el-col>
-    </el-row> -->
 </template>
 
 <script setup>
@@ -58,6 +42,8 @@ const getImage = function (imageId) {
 onMounted(() => {
   getImage(route.params.imageId);
 });
+
+const auto = ref(true);
 </script>
 
 <style scoped>

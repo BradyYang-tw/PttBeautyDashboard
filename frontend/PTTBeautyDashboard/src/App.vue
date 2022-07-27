@@ -3,6 +3,7 @@ import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 import CardList from "./components/CardList.vue";
 
+
 // // 建立Router
 // import { ref, computed } from 'vue'
 
@@ -39,7 +40,7 @@ import CardList from "./components/CardList.vue";
 
 <style>
 body {
-  height: 100%;
+  
   overflow-y: scroll;
   overflow-x: hidden;
   
@@ -53,12 +54,20 @@ body {
   justify-content: flex-start;
 }
 .el-container {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 100px);
+  background: #EEEEEE;
 }
 
 .el-footer {
-  background: #EEEEEE;
+  margin-top: 10px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 390px) {
+  .el-footer {
+  height: 100px !important;
+}
 }
 </style>

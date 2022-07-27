@@ -4,7 +4,7 @@ import sqlite3
 def create_db():
     con = sqlite3.connect('mydatabase.db')
     # Create Table
-    con.execute('''CREATE TABLE ptt_beauty
+    con.execute('''CREATE TABLE IF NOT EXISTS ptt_beauty
              (ID INTEGER PRIMARY KEY     AUTOINCREMENT,
              TITLE           TEXT    NOT NULL,
              URLS        TEXT,
