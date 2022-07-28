@@ -34,6 +34,6 @@ def main(custom_date=datetime.datetime.today().strftime("%#m/%d")):
             href_data, last_url = common.get_page_url(domain + last_url)
 
 
-# if __name__ == "__main__":
-#     # main("6/25")
-#     main("7/27")
+if __name__ == "__main__":
+    # main("6/25")
+    main()
