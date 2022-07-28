@@ -1,4 +1,5 @@
 <template>
+  <p class="update-time">更新時間: {{now}}</p>
   <el-row :gutter="20">
     <el-col
       v-for="(item, index) in pttData"
@@ -33,17 +34,21 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, watch } from "vue";
 import { getAllImage } from "@/api/image.js";
 import { useRouter, useRoute } from "vue-router";
+import moment from 'moment';
 
 // getAllImage
 const pttData = ref([]);
+const now = ref('')
 const getData = function () {
   getAllImage()
     .then((response) => {
       console.log(response.data);
       pttData.value = response.data.msg;
+      now.value = moment().format('YYYY-MM-DD HH:mm:ss')
+      
     })
     .catch()
     .finally();
@@ -67,6 +72,7 @@ const goDetail = function (id, title, href) {
 onMounted(() => {
   getData();
 });
+
 </script>
 
 <style scoped>
@@ -74,6 +80,10 @@ onMounted(() => {
   font-size: 16px;
   /* font-weight: bold; */
   color: rgb(15, 15, 15);
+}
+.update-time{
+  display:flex;
+  justify-content: flex-end;
 }
 
 .bottom {

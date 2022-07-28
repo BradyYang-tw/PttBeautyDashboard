@@ -17,7 +17,9 @@ def getAllImage():
     con = sqlite3.connect('mydatabase.db')
     # SELECT TABLE
     data = []
-    for row in con.execute('''SELECT * from ptt_beauty'''):
+    for row in con.execute('''SELECT * from ptt_beauty
+                            ORDER BY date DESC;
+                           '''):
         data.append({"beautyId":row[0], 'title': row[1], "urls": ast.literal_eval(row[2]),
                      "date": row[3], "href": row[4]})
     con.close()
