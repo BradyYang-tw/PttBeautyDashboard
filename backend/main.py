@@ -21,7 +21,7 @@ def main(custom_date=datetime.datetime.today().strftime("%#m/%d")):
             # 將資料寫進SQLlite
             con = sqlite3.connect('mydatabase.db')
             c = con.cursor()
-            query = 'INSERT or ignore INTO ptt_beauty (TITLE,URLS, DATE, HREF) VALUES (?, ?, ?, ?)'
+            query = 'INSERT OR REPLACE INTO ptt_beauty (TITLE,URLS,DATE,HREF) VALUES (?, ?, ?, ?)'
             query_data = [i.find("a").text, str(data), date, domain + i.find("a")['href']]
             c.execute(query, query_data)
             con.commit()

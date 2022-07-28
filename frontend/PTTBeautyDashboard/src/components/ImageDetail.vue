@@ -71,7 +71,7 @@ a:hover {
   width: 100%;
   height: 500px;
   margin: 0 auto;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media (max-width: 390px) {
