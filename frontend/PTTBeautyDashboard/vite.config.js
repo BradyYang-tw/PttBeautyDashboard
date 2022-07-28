@@ -12,6 +12,7 @@ export default defineConfig({
     }
   },
   server: {
+	host: '0.0.0.0',
     proxy: {
       // string shorthand
       // '/getData': 'http://localhost:5000/getData',
